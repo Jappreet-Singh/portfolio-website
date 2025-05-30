@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--var-background-color);
+}
+.navbar-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:  3%;
+    ;
+}
+ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding-bottom: 2%;
+}
+a{
+    text-decoration: none;
+    color:black;
+    font-size: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-right: .5px solid rgb(135, 135, 135);
+    padding-right: 10px;
+}
+a:hover{
+    border-bottom:1px solid rgb(135, 135, 135);
+    border-radius: 2px;
+}
