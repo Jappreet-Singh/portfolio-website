@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <p>
+    <p id=#about>
       about works!
     </p>
   `,
