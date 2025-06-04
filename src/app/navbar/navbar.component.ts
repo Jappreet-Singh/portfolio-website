@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
       <nav class="navbar-links">
         <ul>
           <li><a routerLink="/" href="/">Home</a></li>
-          <li><a  href="#about">About</a></li>
           <li><a routerLink="/projects" href="/projects">Projects</a></li>
           <li><a routerLink="/contact" href="/contact">Contact</a></li>
         </ul>

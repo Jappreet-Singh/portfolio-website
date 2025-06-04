@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutComponent } from "../about/about.component";
+
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, AboutComponent],
+  imports: [CommonModule],
   template: `
-    <p>
-      home works!
-    </p>
-    <app-about></app-about>
+    <section class="home">
+      <img src="../assets/laptop_img.jpg" alt="Home Image" class="home-image">
+    </section>
   `,
-  styles: [
-  ]
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
 

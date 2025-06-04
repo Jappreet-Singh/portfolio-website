@@ -1,0 +1,10 @@
+.home{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: var(--var-background-color);
+}
+img{
+    
+    height: 90vh;
+}
