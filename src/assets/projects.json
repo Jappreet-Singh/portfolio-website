@@ -1,31 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Project } from '../project';
-
-@Component({
-  selector: 'app-project',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <div class="projects-container">
-  <div *ngFor="let project of projects" class="project-card">
-    <img [src]="project.image" alt="{{ project.title }}" />
-    <h3>{{ project.title }}</h3>
-    <p>{{ project.description }}</p>
-    <a [href]="project.link" target="_blank">View Project</a>
-  </div>
-</div>
-
-  `,
-  styles: [
-  ]
-})
-export class ProjectComponent {
-  projects: Project[] = [];
-
-  constructor() {
-    this.projects =[
-      {
+[
+    {
     "id": 1,
     "title": "Angular",
     "description": "Projects that showcase the use of Angular framework for building dynamic web applications.",
@@ -56,8 +30,4 @@ export class ProjectComponent {
     "image": "/assets/images/java.png",
     "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/JAV"
     }
-    ]
-    
-  }
-
-}
+]
