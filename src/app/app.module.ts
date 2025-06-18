@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from "./home/home.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HomeComponent,
     NavbarComponent,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
 ],
   providers: [],
   bootstrap: [AppComponent]
