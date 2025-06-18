@@ -55,3 +55,9 @@ ul{
 i{
     font-size: 1.3rem;
 }
+@media only screen and (max-width: 768px) {
+    
+    .social-links{
+        transform: translateX(35vw);
+    }
+}
