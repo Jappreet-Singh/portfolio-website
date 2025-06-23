@@ -32,7 +32,7 @@ export class ProjectComponent {
     "title": "Angular",
     "description": "Projects that showcase the use of Angular framework for building dynamic web applications.",
     "technologies": ["Angular", "TypeScript", "HTML", "CSS"],
-    "image": "/assets/logo-angular.jpg",
+    "image": "/assets/logo-angular.png",
     "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/AN"
     },
     {
@@ -40,7 +40,7 @@ export class ProjectComponent {
     "title": "C#",
     "description": "A book management system developed using C# and MS Access.",
     "technologies": ["C#", "MSAcess", "SQL"],
-    "image": "/assets/logo-csharp.jpg",
+    "image": "/assets/logo-csharp.png",
     "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/CIS"
     },
     {
@@ -48,14 +48,14 @@ export class ProjectComponent {
     "title": "Php",
     "description": "A blog application built with PHP and MySQL, featuring user authentication and post management.",
     "technologies": ["PHP", "MySQL", "HTML", "CSS"],
-    "image": "/assets/logo-php.jpg",
+    "image": "/assets/logo-php.png",
     "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/CIS4"
     },
     {"id": 4,
     "title": "Java",
     "description": "A simple Java application that demonstrates basic programming concepts.",
     "technologies": ["Java", "Spring Boot", "HTML", "CSS"],
-    "image": "/assets/logo-java.jpg",
+    "image": "/assets/logo-java.png",
     "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/JAV"
     }
     ]
