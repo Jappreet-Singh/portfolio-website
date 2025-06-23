@@ -9,8 +9,8 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <section class="home">
-      <img src="../assets/laptop_img.jpg" alt="Home Image" class="home-image">
-    <img src="../assets/laptop_img.jpg" id = "background-image" alt="Home Image" class="home-image">
+      <img src="../assets/laptop_img.png" alt="Home Image" class="home-image">
+    <img src="../assets/laptop_img.png" id = "background-image" alt="Home Image" class="home-image">
       <div class = "summary">
       <p class="summary-text">
         Hi, I'm <strong>Jappreet Singh</strong>, a passionate software developer with a background in Computer Information Systems from Holland College.
