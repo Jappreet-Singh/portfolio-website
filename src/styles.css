@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 :root {
     --var-nav-background-color: #111111;
-    --var-background-color:black;
+    --var-background-color: black;
     overscroll-behavior: none;
     overflow-y: scroll;
     font-size: 1.2rem;

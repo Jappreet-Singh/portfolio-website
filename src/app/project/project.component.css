@@ -1,69 +1,87 @@
-*{
+* {
     color: white;
     font-size: 1.2rem;
     line-height: 1.5;
     scroll-behavior: smooth;
 }
+
 body {
     background-attachment: fixed;
     background-image: url('/assets/laptop_img.jpg');
 }
+
 .projects-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  padding-top:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-top: 20px;
     padding-left: 50px;
-  background-color: var(--var-background-color);
+    background-color: var(--var-background-color);
 }
-.logo-image{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+
+.logo-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
-.background{
+
+.background {
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
     left: 25%;
-    top:15%;
+    top: 15%;
     background-color: var(--var-background-color);
     background-image: url('/assets/laptop_img.jpg');
 }
 
-.project{
-    position:relative;
-    z-index:1;
+.project {
+    position: relative;
+    z-index: 1;
     border: 1px solid rgb(135, 135, 135);
     border-radius: 10px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
     padding: 10px;
     margin: 10px;
     width: 80%;
 }
-img{
+
+img {
     height: 90vh;
 }
-.project-link{
-    
+
+.project-link {
+
     text-decoration: none;
     font-style: italic;
     border: .05px solid rgb(135, 135, 135);
     border-radius: 10px;
     padding: 5px;
 }
-.project-link:hover{
+
+.project-link:hover {
     color: black;
     background-color: white;
     transition: 0.3s ease-in-out;
 }
+
 @media only screen and (max-width: 768px) {
-    .background{
+    .background {
         transform: translateX(-25%);
     }
-    
-    
+
+
+}
+
+@media only screen and (max-width:645px) {
+    img {
+        height: 80vh;
+    }
+
+    .background {
+        transform: translateX(-30%);
+    }
 }
