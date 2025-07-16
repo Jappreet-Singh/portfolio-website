@@ -22,9 +22,12 @@ import { Project } from '../project';
           alt="{{ project.title }}"
         />
         <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
+        <p class="project-description">{{ project.description }}</p>
+        <p class="technologies">
+          <strong >Technologies:</strong> {{ project.technologies.join(', ') }}
+        </p>
         <a class="project-link" [href]="project.link" target="_blank"
-          >View Project</a
+          >View Projects</a
         >
       </div>
     </div>
@@ -49,7 +52,7 @@ export class ProjectComponent {
         id: 2,
         title: 'C#',
         description:
-          'A book management system developed using C# and MS Access.',
+          'Projects that showcase apps made with help of visual studio and C# programming language.',
         technologies: ['C#', 'MSAcess', 'SQL'],
         image: './assets/logo-csharp.png',
         link: 'https://bitbucket.org/jappreetsinghcis/workspace/projects/CIS',
@@ -58,7 +61,7 @@ export class ProjectComponent {
         id: 3,
         title: 'Php',
         description:
-          'A blog application built with PHP and MySQL, featuring user authentication and post management.',
+          'Projects that showcase use of PHP for server-side scripting and web development.',
         technologies: ['PHP', 'MySQL', 'HTML', 'CSS'],
         image: './assets/logo-php.png',
         link: 'https://bitbucket.org/jappreetsinghcis/workspace/projects/CIS4',
@@ -67,7 +70,7 @@ export class ProjectComponent {
         id: 4,
         title: 'Java',
         description:
-          'A simple Java application that demonstrates basic programming concepts.',
+          'Projects that showcase the use of Java for building robust applications with help of Spring Boot.',
         technologies: ['Java', 'Spring Boot', 'HTML', 'CSS'],
         image: './assets/logo-java.png',
         link: 'https://bitbucket.org/jappreetsinghcis/workspace/projects/JAV',

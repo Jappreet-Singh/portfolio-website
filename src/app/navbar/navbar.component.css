@@ -26,7 +26,7 @@ ul {
     font-size: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     border-right: .5px solid rgb(135, 135, 135);
-    padding-right: 10px;
+    padding: 0px 20px 0px 20px;
 
 }
 
@@ -36,12 +36,13 @@ ul {
     border-radius: 2px;
     background-color: #5233d4;
     transition: all 0.2s ease-in-out;
-    padding: 10px 10px 10px 10px;
+    padding: 15px 7px 15px 7px;
+    margin: 0px 13px 0px 13px;
 }
 
 .social-links {
     display: flex;
-    transform: translateX(40vw);
+    transform: translateX(38vw);
 }
 
 .a-socials {
@@ -52,7 +53,7 @@ ul {
 }
 
 .a-socials:hover {
-    box-shadow: #E0E0E0 0px 0px 10px;
+    text-shadow: #E0E0E0 0px 0px 20px;
     border: none;
     padding: 0;
     background-color: var(--var-nav-background-color);
@@ -60,7 +61,7 @@ ul {
 }
 
 i {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
 @media only screen and (max-width: 768px) {
