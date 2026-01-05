@@ -29,6 +29,13 @@ export class ProjectComponent {
     this.projects =[
       {
     "id": 1,
+    "title": "Chatbot Clone",
+    "description": "a full-stack AI chatbot using Angular and FastAPI with Retrieval-Augmented Generation (RAG) for document-aware responses.",
+    "technologies": ["Angular", "TypeScript", "HTML", "CSS"],
+    "image": "/assets/logo-chatbot.png",
+    "link": "https://github.com/Jappreet-Singh/copliot_clone"
+    },{
+    "id": 2,
     "title": "Angular",
     "description": "Projects that showcase the use of Angular framework for building dynamic web applications.",
     "technologies": ["Angular", "TypeScript", "HTML", "CSS"],
@@ -36,7 +43,7 @@ export class ProjectComponent {
     "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/AN"
     },
     {
-    "id": 2,
+    "id": 3,
     "title": "C#",
     "description": "A book management system developed using C# and MS Access.",
     "technologies": ["C#", "MSAcess", "SQL"],
@@ -44,14 +51,15 @@ export class ProjectComponent {
     "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/CIS"
     },
     {
-    "id": 3,
+    "id": 4,
     "title": "Php",
     "description": "A blog application built with PHP and MySQL, featuring user authentication and post management.",
     "technologies": ["PHP", "MySQL", "HTML", "CSS"],
     "image": "/assets/logo-php.png",
     "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/CIS4"
     },
-    {"id": 4,
+    {
+    "id": 5,
     "title": "Java",
     "description": "A simple Java application that demonstrates basic programming concepts.",
     "technologies": ["Java", "Spring Boot", "HTML", "CSS"],
