@@ -29,7 +29,7 @@
             ],
             "scripts": []
           },
-          "configurations": {
+"configurations": {
             "production": {
               "budgets": [
                 {
@@ -43,7 +43,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/portfolio-website/"
             },
             "development": {
               "buildOptimizer": false,

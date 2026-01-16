@@ -6,7 +6,7 @@
 }
 body {
     background-attachment: fixed;
-    background-image: url('/assets/laptop_img.jpg');
+    background-image: url('/portfolio-website/assets/laptop_img.png');
 }
 .projects-container {
   display: flex;
@@ -30,7 +30,7 @@ body {
     left: 25%;
     top:15%;
     background-color: var(--var-background-color);
-    background-image: url('/assets/laptop_img.jpg');
+    background-image: url('/portfolio-website/assets/laptop_img.png');
 }
 
 .project{
