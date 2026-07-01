@@ -1,38 +1,122 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <section class="navbar">
-      <nav class="navbar-links">
-        <ul class="nav-links">
-          <li><a class="a-navLinks" routerLink="/">Home</a></li>
-          <li><a  class="a-navLinks" routerLink="/projects">Projects</a></li>
-          <!-- <li><a routerLink="/contact" href="/contact">Contact</a></li> -->
-        </ul>
-        <ul class="social-links">
-          <li class="li-socials">
-            
+    <header class="navbar" [class.scrolled]="isScrolled">
+      <div class="nav-container">
+        <a routerLink="/" class="logo">
+          <span class="logo-text">JS</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="desktop-nav">
+          <ul class="nav-links">
+            <li>
+              <a
+                routerLink="/"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a routerLink="/projects" routerLinkActive="active">Projects</a>
+            </li>
+          </ul>
+
+          <div class="social-links">
             <a
-              class="a-socials"
-              href="https://www.linkedin.com/in/jappreet-singh-2441362a2?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BCeWa88zmT9%2B%2FYPmMzvkFIA%3D%3D"
+              href="https://github.com/#"
               target="_blank"
               rel="noopener noreferrer"
-              ><i class="fab fa-linkedin"></i
-            ></a>
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="mobile-toggle"
+          (click)="toggleMobileMenu()"
+          aria-label="Toggle menu"
+        >
+          <i
+            class="fas"
+            [class.fa-bars]="!isMobileMenuOpen"
+            [class.fa-times]="isMobileMenuOpen"
+          ></i>
+        </button>
+      </div>
+
+      <!-- Mobile Nav Drawer -->
+      <div class="mobile-nav" [class.open]="isMobileMenuOpen">
+        <ul class="mobile-links">
+          <li>
+            <a
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              (click)="closeMobileMenu()"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/projects"
+              routerLinkActive="active"
+              (click)="closeMobileMenu()"
+              >Projects</a
+            >
           </li>
         </ul>
-      </nav>
-    </section>
+        <div class="mobile-socials">
+          <a
+            href="https://github.com/#"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://linkedin.com/in/#"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </header>
   `,
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  isScrolled = false;
+  isMobileMenuOpen = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 20;
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+  }
+}

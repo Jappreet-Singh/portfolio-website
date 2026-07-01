@@ -1,8 +1,12 @@
 export interface Project {
   id: number;
   title: string;
+  subtitle: string;
   description: string;
-  image: string;
-  link: string;
+  highlights: string[];
   technologies: string[];
+  category: 'featured' | 'other';
+  image?: string;
+  githubLink?: string;
+  demoLink?: string;
 }

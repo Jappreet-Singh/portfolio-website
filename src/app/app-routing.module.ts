@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProjectComponent } from './project/project.component';
-import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {
@@ -11,26 +10,19 @@ const routes: Routes = [
     component: HomeComponent,
     title: 'Home',
   },
-  // {
-  //   path: 'about',
-  //   component: AboutComponent,
-  //   title: 'About'
-  // },
   {
     path: 'projects',
     component: ProjectComponent,
     title: 'Projects',
-  },
-  {
-    path: 'contact',
-    component: ContactComponent,
-    title: 'Contact',
-  },
+  }
 ];
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled'
+  })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

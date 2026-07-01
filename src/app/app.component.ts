@@ -1,13 +1,14 @@
-import { Component, NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   template: `
-    <section>
-      <app-navbar></app-navbar>
+    <app-navbar></app-navbar>
+    <main>
       <router-outlet></router-outlet>
-    </section>
+    </main>
+    <app-footer></app-footer>
   `,
 })
 export class AppComponent {
