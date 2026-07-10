@@ -1,42 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
-import {RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ProjectComponent } from './project/project.component';
-import { ContactComponent } from './contact/contact.component';
-
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Home'
+    title: 'Home',
   },
-  // {
-  //   path: 'about',
-  //   component: AboutComponent,
-  //   title: 'About'
-  // },
   {
     path: 'projects',
     component: ProjectComponent,
-    title: 'Projects'
-  },
-  {
-    path: 'contact',
-    component: ContactComponent,
-    title: 'Contact'
+    title: 'Projects',
   }
-]
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes, { useHash: true })
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [CommonModule, RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled'
+  })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

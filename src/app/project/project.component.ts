@@ -1,73 +1,112 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../project';
+import { TiltDirective } from '../shared/tilt.directive';
 
 @Component({
   selector: 'app-project',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-  <div class="background">
-    <img class="background-img" src="/portfolio-website/assets/laptop_img.png" alt="Logo" />
-  </div>
-    <div class="projects-container">
-  <div ngClass="project" *ngFor="let project of projects" class="project-card">
-    <img class="logo-image" [src]="project.image" alt="{{ project.title }}" />
-    <h3>{{ project.title }}</h3>
-    <p>{{ project.description }}</p>
-    <a class="project-link" [href]="project.link" target="_blank">View Project</a>
-  </div>
-</div>
-
-  `,
-  styleUrls: ['./project.component.css']
+  imports: [CommonModule, TiltDirective],
+  templateUrl: './project.component.html',
+  styleUrls: ['./project.component.css'],
 })
-export class ProjectComponent {
+export class ProjectComponent implements OnInit, AfterViewInit {
   projects: Project[] = [];
+  featuredProjects: Project[] = [];
+  otherProjects: Project[] = [];
 
   constructor() {
-    this.projects =[
+    this.projects = [
       {
-    "id": 1,
-    "title": "Chatbot Clone",
-    "description": "a full-stack AI chatbot using Angular and FastAPI with Retrieval-Augmented Generation (RAG) for document-aware responses.",
-    "technologies": ["Angular", "TypeScript", "HTML", "CSS"],
-    "image": "/portfolio-website/assets/logo-chatbot.png",
-    "link": "https://github.com/Jappreet-Singh/copliot_clone"
-    },{
-    "id": 2,
-    "title": "Angular",
-    "description": "Projects that showcase the use of Angular framework for building dynamic web applications.",
-    "technologies": ["Angular", "TypeScript", "HTML", "CSS"],
-    "image": "/portfolio-website/assets/logo-angular.png",
-    "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/AN"
-    },
-    {
-    "id": 3,
-    "title": "C#",
-    "description": "A book management system developed using C# and MS Access.",
-    "technologies": ["C#", "MSAcess", "SQL"],
-    "image": "/portfolio-website/assets/logo-csharp.png",
-    "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/CIS"
-    },
-    {
-    "id": 4,
-    "title": "Php",
-    "description": "A blog application built with PHP and MySQL, featuring user authentication and post management.",
-    "technologies": ["PHP", "MySQL", "HTML", "CSS"],
-    "image": "/portfolio-website/assets/logo-php.png",
-    "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/CIS4"
-    },
-    {
-    "id": 5,
-    "title": "Java",
-    "description": "A simple Java application that demonstrates basic programming concepts.",
-    "technologies": ["Java", "Spring Boot", "HTML", "CSS"],
-    "image": "/portfolio-website/assets/logo-java.png",
-    "link": "https://bitbucket.org/jappreetsinghcis/workspace/projects/JAV"
-    }
-    ]
-    
+        id: 1,
+        title: 'AI Chatbot with RAG',
+        subtitle:
+          'Full-stack RAG system providing context-grounded LLM responses.',
+        description:
+          'Built a document ingestion pipeline with chunking, embeddings, and semantic vector search. Reduced hallucinations via cosine-similarity retrieval.',
+        highlights: [
+          'Reduced hallucination via cosine-similarity retrieval.',
+          'Built a document ingestion pipeline (chunking, embeddings, semantic vector search).',
+          'FastAPI backend with structured prompt construction.',
+        ],
+        technologies: [
+          'Angular',
+          'FastAPI',
+          'Python',
+          'Vector Embeddings',
+          'Prompt Engineering',
+        ],
+        category: 'featured',
+        githubLink: 'https://github.com/Jappreet-Singh/copliot_clone',
+      },
+      {
+        id: 2,
+        title: 'League Tracker',
+        subtitle:
+          'Full-stack sports management platform with real-time rankings.',
+        description:
+          'Sports management platform with REST and SOAP services, and optimized SQL.',
+        highlights: [
+          'Developed REST and SOAP services for data integration.',
+          'Optimized SQL queries for real-time ranking generation.',
+        ],
+        technologies: ['Java', 'MySQL', 'REST', 'SOAP'],
+        category: 'featured',
+        githubLink:
+          'https://bitbucket.org/jappreetsinghcis/cis2232_20242025_project_singh_jappreet_league_standings_track/src/main/',
+      },
+      {
+        id: 3,
+        title: 'Employee Management System',
+        subtitle: 'Authentication-secured CRUD application.',
+        description: 'Session management and SQL-injection mitigation.',
+        highlights: [
+          'Implemented robust session management.',
+          'Secured endpoints against SQL-injection attacks.',
+        ],
+        technologies: ['C#', 'PHP', 'SQL'],
+        category: 'featured',
+        githubLink:
+          'https://bitbucket.org/jappreetsinghcis/employeesearch/src/main/',
+      },
+
+      {
+        id: 4,
+        title: 'Book Management System',
+        subtitle: 'Developed using C# and MS Access.',
+        description:
+          'Projects that showcase apps made with help of visual studio and C# programming language.',
+        highlights: [],
+        technologies: ['C#', 'MS Access', 'SQL'],
+        category: 'featured',
+        githubLink:
+          'https://bitbucket.org/jappreetsinghcis/book_management_system/src/main/',
+      },
+    ];
+
+    this.featuredProjects = this.projects.filter(
+      (p) => p.category === 'featured',
+    );
+    this.otherProjects = this.projects.filter((p) => p.category === 'other');
   }
 
+  ngOnInit(): void {}
+
+  ngAfterViewInit() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    document.querySelectorAll('.fade-in-up, .project-card').forEach((el) => {
+      observer.observe(el);
+    });
+  }
 }

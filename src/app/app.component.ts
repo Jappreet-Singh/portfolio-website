@@ -1,17 +1,23 @@
-import { Component, NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   template: `
-  <section>
+    <!-- Global Floating Background Orbs -->
+    <div class="background-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    
     <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-  </section>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
   `,
-
 })
-
 export class AppComponent {
   title = 'portfolio-website';
 }

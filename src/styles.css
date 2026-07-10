@@ -1,14 +1,199 @@
-/* You can add global styles to this file, and also import other style files */
-*{
-    margin: 0;
-    padding: 0;
+@property --mouse-x {
+  syntax: '<length> | <percentage>';
+  initial-value: 50%;
+  inherits: true;
 }
+@property --mouse-y {
+  syntax: '<length> | <percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
 :root {
-    --var-nav-background-color: #111111;
-    --var-background-color:black;
-    overscroll-behavior: none;
-    overflow-y: scroll;
-    font-size: 1.2rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    line-height: 1;
+  /* Color Palette */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a2e;
+  
+  --surface-glass: rgba(255, 255, 255, 0.04);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(99, 102, 241, 0.4);
+  
+  --accent-primary: #6366f1;
+  --accent-glow: #818cf8;
+  --accent-secondary: #22d3ee;
+  
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Typography */
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --mouse-x: 50%;
+  --mouse-y: 50%;
 }
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utilities */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.glass-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Spotlight Glow applied to glass cards via tilt directive variables */
+.spotlight-glow::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(99, 102, 241, 0.08),
+    transparent 40%
+  );
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.spotlight-glow:hover::before {
+  opacity: 1;
+}
+
+/* Scroll Animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-in-up.visible {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-in-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .spotlight-glow::before {
+    display: none;
+  }
+}
+
+/* Global Responsive Adjustments */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .section-container {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* Global Background Orbs */
+.background-orbs {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.orb-1 {
+  width: 400px; height: 400px;
+  background: var(--accent-primary);
+  top: -100px; left: -100px;
+  animation: floatOrb1 20s infinite alternate ease-in-out;
+}
+
+.orb-2 {
+  width: 500px; height: 500px;
+  background: #3b82f6; /* Blueish */
+  bottom: -200px; right: -100px;
+  animation: floatOrb2 25s infinite alternate ease-in-out;
+}
+
+.orb-3 {
+  width: 300px; height: 300px;
+  background: var(--accent-secondary);
+  top: 40%; left: 60%;
+  animation: floatOrb3 15s infinite alternate ease-in-out;
+  opacity: 0.2;
+}
+
+@keyframes floatOrb1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(100px, 100px) scale(1.2); }
+}
+@keyframes floatOrb2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-100px, -50px) scale(1.1); }
+}
+@keyframes floatOrb3 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-50px, 100px) scale(1.3); }
+}
