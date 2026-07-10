@@ -76,7 +76,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
         subtitle: 'Developed using C# and MS Access.',
         description:
           'Projects that showcase apps made with help of visual studio and C# programming language.',
-        highlights: [],
+        highlights: [
+          'created an UI interface that helps user to search for particular book based on name,author or isbn of book.',
+          'Created database with MS Access and established connection between frontend and backend.',
+        ],
         technologies: ['C#', 'MS Access', 'SQL'],
         category: 'featured',
         githubLink:
