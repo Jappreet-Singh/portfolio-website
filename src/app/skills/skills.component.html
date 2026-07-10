@@ -1,0 +1,27 @@
+<section class="section-container skills-section" id="skills">
+  <div class="section-header fade-in-up">
+    <h2>Technical Arsenal</h2>
+    <p>Tools and technologies I use to build scalable solutions.</p>
+  </div>
+
+  <div class="skills-grid">
+    <div
+      *ngFor="let category of skillCategories; let i = index"
+      class="skill-category glass-card spotlight-glow fade-in-up"
+      [style.animation-delay]="(i * 0.1) + 's'"
+      appTilt
+      [tiltMaxAngle]="5"
+      [tiltScale]="1.01"
+    >
+      <div class="category-header">
+        <i [class]="category.icon"></i>
+        <h3>{{ category.title }}</h3>
+      </div>
+      <div class="skills-list">
+        <span *ngFor="let skill of category.skills" class="skill-pill">
+          {{ skill }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

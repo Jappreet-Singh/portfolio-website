@@ -1,0 +1,4 @@
+# Block search engine crawlers from accessing the resume files
+User-agent: *
+Allow: /
+Disallow: /assets/resume/

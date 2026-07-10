@@ -1,0 +1,62 @@
+<section class="projects-page section-container">
+  <div class="page-header fade-in-up">
+    <h1 class="page-title">Projects</h1>
+    <p class="page-subtitle">
+      A collection of my recent work and side projects.
+    </p>
+  </div>
+
+  <!-- Featured Projects -->
+  <div class="projects-section">
+    <h2 class="section-title fade-in-up">Featured Projects</h2>
+    <div class="projects-grid featured-grid">
+      <div
+        *ngFor="let project of featuredProjects; let i = index"
+        class="project-card featured-card glass-card spotlight-glow fade-in-up"
+        [style.animation-delay]="i * 0.1 + 's'"
+        appTilt
+        [tiltMaxAngle]="4"
+        [tiltScale]="1.01"
+      >
+        <div class="card-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-subtitle">{{ project.subtitle }}</p>
+
+          <ul class="project-highlights">
+            <li *ngFor="let highlight of project.highlights">
+              {{ highlight }}
+            </li>
+          </ul>
+
+          <div class="tech-stack">
+            <span *ngFor="let tech of project.technologies" class="tech-pill">{{
+              tech
+            }}</span>
+          </div>
+
+          <div class="card-actions">
+            <a
+              *ngIf="project.githubLink"
+              [href]="project.githubLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline action-btn"
+            >
+              <i class="fab fa-github"></i> Source
+            </a>
+
+            <a
+              *ngIf="project.demoLink"
+              [href]="project.demoLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary action-btn"
+            >
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
